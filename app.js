@@ -1,9 +1,12 @@
-const amount = 9
-if (amount < 10) {
-  console.log('small number');
-}
-else {
-  console.log('large number');
-}
+// GLOBALS - NO WINDOW!!!
 
-console.log(`hey it's my first node app`);
+// __dirname - path to current directory
+// __filename - file name
+// require - function to use models (CommonJS)
+// module - infor about current module (file)
+// process - info abaout env where the program is being executed
+
+console.log(__dirname);
+setInterval(() => {
+  console.log('hello world');
+}, 1000)

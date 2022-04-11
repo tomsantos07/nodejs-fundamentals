@@ -1,21 +1,12 @@
-const path = require('path');
-console.log(path.sep);
+const { readFileSync, writeFileSync } = require('fs');
 
-const demoStrings = 'foo/bar/fizz/buzz';
-const sepPath = demoStrings.split(path.sep);
-console.log(sepPath);
+const first = readFileSync('./content/first.txt', 'utf-8');
+const second = readFileSync('./content/second.txt', 'utf-8');
 
-const filePath = path.join('/content', 'subfolder', 'test.txt');
+console.log(first, second);
 
-console.log(filePath);
-
-const base = path.basename(filePath);
-console.log(base);
-
-const absolute = path.resolve(
-  __dirname,
-  'content',
-  'subfolder',
-  'test.txt'
+//  if there's not a file with the name, node will create one, if so, he'll overwrite
+writeFileSync('./content/result-sync.txt',
+  `Here is the result: ${first}, ${second}`,
+  { flag: 'a' }
 );
-console.log(absolute);
